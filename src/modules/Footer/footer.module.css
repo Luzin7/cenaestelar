@@ -1,0 +1,8 @@
+.footer_container {
+  height: 7vh;
+  background: #272727;
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}/*# sourceMappingURL=footer.module.css.map */

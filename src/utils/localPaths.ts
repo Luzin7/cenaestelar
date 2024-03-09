@@ -1,0 +1,15 @@
+export const localPaths = {
+  HOME: "/",
+  ABOUT: "/about",
+  LOGIN: "/login",
+  REGISTER: "/register",
+  RECOMMENDATION: "/recommendation",
+  SEARCH: "/search",
+  CATEGORIES: "/categories",
+  MOVIES: "/movies",
+  SERIES: "/series",
+  ANIMES: "/animes",
+  MOVIE: "/movie/:id",
+  SERIE: "/serie/:id",
+  ANIME: "/anime/:id",
+};

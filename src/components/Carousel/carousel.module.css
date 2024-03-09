@@ -1,0 +1,21 @@
+.carousel_section {
+  width: 100% px;
+  margin-left: 40px;
+  padding: 25px 0;
+}
+.carousel_section h1 {
+  font-size: x-large;
+  margin-bottom: 20px;
+}
+
+.carousel_content__container div {
+  max-width: 320;
+  height: 160px;
+}
+.carousel_content__container div img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 10px;
+}/*# sourceMappingURL=carousel.module.css.map */
