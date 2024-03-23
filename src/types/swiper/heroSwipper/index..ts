@@ -1,5 +1,5 @@
-import { contentBannerProps } from "@/types/content/movie";
+import { ContentBannerProps } from "@/types/content";
 
 export type HeroSwiperProps = {
-  banners: contentBannerProps[];
+  banners: ContentBannerProps[];
 };

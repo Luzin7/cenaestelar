@@ -1,36 +1,27 @@
 :root {
-  --text: #1b141f;
-  --bg: #ffffff;
+  --text: #ffffff;
+  --bg: #1b141f;
   --primary: #8109d1;
-  --secondary: #cfcfcf;
-  --accent: #532a6f;
-  color-scheme: light dark;
+  --secondary: #272727;
+  --accent: #a26bc7;
   font-family: "Roboto", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #ffffff;
-    --bg: #1b141f;
-    --primary: #8109d1;
-    --secondary: #272727;
-    --accent: #a26bc7;
-  }
-}
 ::-moz-selection {
   background: var(--primary);
 }
+
 ::selection {
   background: var(--primary);
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary);
-  border-radius: 1em;
+  border-radius: 1rem;
   border: 1px solid var(--bg);
 }
 

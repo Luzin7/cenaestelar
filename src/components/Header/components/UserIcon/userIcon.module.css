@@ -1,0 +1,20 @@
+.icon_container {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .icon_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 2rem;
+    border: 1px solid var(--accent);
+    border-radius: 100%;
+    padding: 0.4rem;
+  }
+  .icon_container svg {
+    font-size: 1.5rem;
+    fill: var(--accent);
+  }
+}/*# sourceMappingURL=userIcon.module.css.map */

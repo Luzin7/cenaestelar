@@ -1,7 +1,9 @@
 "use client";
 
+import { urlSlugMaker } from "@/functions/urlSlugMaker";
 import { HeroSwiperProps } from "@/types/swiper/heroSwipper/index.";
 import Image from "next/image";
+import Link from "next/link";
 import "swiper/css";
 import "swiper/css/effect-fade";
 import "swiper/css/navigation";
@@ -27,7 +29,7 @@ export function HeroSwiper({ banners }: HeroSwiperProps) {
         }}
         modules={[Autoplay, Pagination]}
       >
-        {banners.map(({ id, banner, rating, shortDescription, title }) => (
+        {banners.map(({ id, banner, shortDescription, title }) => (
           <SwiperSlide
             key={id}
             style={{
@@ -45,7 +47,9 @@ export function HeroSwiper({ banners }: HeroSwiperProps) {
               >
                 <h2>{title}</h2>
                 <p>{shortDescription}</p>
-                <button type="button">Saiba mais</button>
+                <Link href={`movie/${urlSlugMaker(title)}/${id}`}>
+                  Saiba mais
+                </Link>
               </div>
               <Image fill key={id} src={banner} alt={title} />
             </div>

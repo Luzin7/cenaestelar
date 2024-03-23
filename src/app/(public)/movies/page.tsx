@@ -1,3 +1,4 @@
+import MoviesCarousel from "@/modules/Carousel/Movies";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function Movies() {
-  return <h1>aoba</h1>;
+  return <MoviesCarousel />;
 }

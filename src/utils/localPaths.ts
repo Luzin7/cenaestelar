@@ -1,7 +1,7 @@
 export const localPaths = {
   HOME: "/",
   ABOUT: "/about",
-  LOGIN: "/login",
+  SIGNIN: "/signIn",
   REGISTER: "/register",
   RECOMMENDATION: "/recommendation",
   SEARCH: "/search",
@@ -9,7 +9,7 @@ export const localPaths = {
   MOVIES: "/movies",
   SERIES: "/series",
   ANIMES: "/animes",
-  MOVIE: "/movie/:id",
-  SERIE: "/serie/:id",
+  MOVIE: "/movie",
+  SERIE: "/serie",
   ANIME: "/anime/:id",
 };

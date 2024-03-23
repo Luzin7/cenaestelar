@@ -1,7 +1,7 @@
-import { contentCarouselProps } from "@/types/content";
+import { ContentCarouselProps } from "@/types/content";
 
 export type CarouselProps = {
   title: string;
   contentType: "movie" | "serie" | "wishList";
-  content: contentCarouselProps[];
+  content: ContentCarouselProps[];
 };

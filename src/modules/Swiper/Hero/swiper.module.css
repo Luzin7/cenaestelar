@@ -11,10 +11,18 @@
      -moz-user-select: none;
           user-select: none;
 }
+.mask img {
+  filter: brightness(0.5);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 20px;
+}
 
 .banner_content__container div h2,
 .banner_content__container div p,
-.banner_content__container div button {
+.banner_content__container div a {
   position: absolute;
   left: 14vw;
   z-index: 1;
@@ -31,8 +39,15 @@
   color: #fff;
   bottom: 12vh;
 }
-.banner_content__container div button {
-  bottom: 7vh;
+.banner_content__container div a {
+  text-decoration: none;
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 1rem 1.5rem;
+  bottom: 5vh;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--text);
 }
 .banner_content__container img {
   filter: brightness(0.5);

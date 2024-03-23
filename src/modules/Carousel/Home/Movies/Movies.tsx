@@ -7,12 +7,12 @@ export function MoviesCarousel() {
       <Carousel
         content={movies}
         contentType="movie"
-        title="Últimos Filmes vistos"
+        title="Últimos Filmes Vistos"
       />
       <Carousel
         content={movies}
         contentType="movie"
-        title="Filmes Bem avaliados"
+        title="Filmes Bem Avaliados"
       />
     </>
   );

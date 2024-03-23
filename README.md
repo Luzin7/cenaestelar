@@ -1,36 +1,19 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# TREINANDO LÓGICA DE PROGRAMAÇÃO BÁSICA EM JAVASCRIPT
 
-## Getting Started
+Aqui você terá algumas tarefas para treinar sua lógica básica de programação. Evite o uso de ferramentas externas como intelingecias artificais e afins.
 
-First, run the development server:
+Lembre-se que lógica de programação nada mais é do que saber o que quer fazer e em qual ordem. Entenda algoritmos para entender a frase anterior.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+#### Cinco Atividades para praticar conceitos básicos de lógica de programação
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- Soma de números pares
+  - Crie um programa que, ao receber um número inteiro positivo, calcule e retorne a soma de todos os números pares até esse que foi recebido.
+- Fatorial de um número
+  - Crie um programa que, ao receber um número inteiro positivo, calcule e retorne o fatorial desse número.
+- Verificar número primo
+  - Crie um programa que, ao receber um número, calcule e retorne se o número é primo ou não.
+- Ordenação de lista: Crie um programa que ordene uma lista de números fornecidos em ordem crescente e decrescente.
+- Contagem regressiva:
+  - Crie um progrmaa que, ao receber um número inteiro positivo, calcule e retorne uma contagem regressiva a partir do número recebido até o 1.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Se tiver alguma dúvida basta chamar :)
