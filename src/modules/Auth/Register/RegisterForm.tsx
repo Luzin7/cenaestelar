@@ -2,38 +2,36 @@
 
 import { Form } from "@/components/Form";
 import { useLoading } from "@/hooks/useLoading";
-import { userSignInProps, userSignInSchema } from "@/schemas/Auth/SignIn";
+import { userRegisterProps, userRegisterSchema } from "@/schemas/Auth/register";
 import { auth } from "@/services/firebase/firebase.config";
 import { useUserStore } from "@/store/user";
-import { localPaths } from "@/utils/localPaths";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
-  browserLocalPersistence,
-  setPersistence,
-  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
 } from "firebase/auth";
-import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import styles from "../style/formAuth.module.css";
 
-export function SignInForm() {
+export function RegisterForm() {
   const { isLoading, setIsLoading } = useLoading();
-  const router = useRouter();
 
   const {
     handleSubmit,
     register,
     formState: { errors },
-  } = useForm<userSignInProps>({
-    resolver: zodResolver(userSignInSchema),
+  } = useForm<userRegisterProps>({
+    resolver: zodResolver(userRegisterSchema),
   });
 
-  const onSubmit = async ({ email, password }: userSignInProps) => {
+  const onSubmit = async ({ email, password }: userRegisterProps) => {
     setIsLoading((prevState) => !prevState);
     try {
-      await setPersistence(auth, browserLocalPersistence);
-
-      const { user } = await signInWithEmailAndPassword(auth, email, password);
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password,
+      );
 
       useUserStore.setState({
         userState: {
@@ -47,11 +45,12 @@ export function SignInForm() {
         },
       });
 
-      setIsLoading((prevState) => !prevState);
-      router.replace(localPaths.HOME);
-    } catch (error) {
-      alert("Erro ao fazer o login. Verifique seu email e senha.");
+      sendEmailVerification(user);
 
+      alert("Falta pouco! Verifique seu email e confirme sua conta.");
+
+      setIsLoading((prevState) => !prevState);
+    } catch (error) {
       setIsLoading((prevState) => !prevState);
       // setIsModalOpen((prev) => !prev);
     }
@@ -59,7 +58,7 @@ export function SignInForm() {
   return (
     <Form.Wrapper onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.form_content_wrapper}>
-        <h2>Acessar Conta</h2>
+        <h2>Crie sua Conta</h2>
         <label htmlFor="email">E-mail</label>
         <Form.Input
           type="email"
@@ -71,7 +70,7 @@ export function SignInForm() {
         {errors.email?.message !== undefined && (
           <Form.Error errorMessage={errors.email.message} />
         )}
-        <label htmlFor="password">Senha</label>
+        <label htmlFor="password">Senha (mínimo 6 caracteres)</label>
         <Form.Input
           type="password"
           placeholder="Senha"
@@ -82,9 +81,8 @@ export function SignInForm() {
         {errors.password?.message !== undefined && (
           <Form.Error errorMessage={errors.password.message} />
         )}
-
         <Form.Button type="submit" disabled={!!isLoading}>
-          {isLoading ? "Aguarde..." : "Entrar"}
+          {isLoading ? "Criando..." : "Criar conta"}
         </Form.Button>
       </div>
     </Form.Wrapper>

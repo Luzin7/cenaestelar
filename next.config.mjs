@@ -3,13 +3,8 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: "cinepop.com.br",
-      },
-      {
-        hostname: "i0.wp.com",
-      },
-      {
-        hostname: "images.alphacoders.com",
+        protocol: "https",
+        hostname: "**",
       },
     ],
     loader: "default",

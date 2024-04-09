@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   description: "Reviews duvidosas, ou não.",
 };
 
-export default function RootLayout({
+export default function GlobalLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

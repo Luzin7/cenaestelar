@@ -1,7 +1,9 @@
 import Carousel from "@/components/Carousel";
-import { movies } from "@/data";
+import { useMoviesStore } from "@/store/movies";
 
 export function MoviesCarousel() {
+  const { movies } = useMoviesStore.getState().movieState;
+
   return (
     <>
       <Carousel

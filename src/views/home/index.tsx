@@ -1,14 +1,16 @@
-import { data } from "@/data";
 import MoviesCarousel from "@/modules/Carousel/Home/Movies";
-import SeriesCarousel from "@/modules/Carousel/Home/Series";
+import WishListCarousel from "@/modules/Carousel/Home/WishList";
 import HeroSwiper from "@/modules/Swiper/Hero";
+import { useMoviesStore } from "@/store/movies";
 
-export default function HomeView() {
+export default async function HomeView() {
+  const movies = useMoviesStore.getState().movieState.movies;
   return (
     <main>
-      <HeroSwiper banners={data} />
+      <HeroSwiper banners={movies} />
       <MoviesCarousel />
-      <SeriesCarousel />
+      <WishListCarousel />
+      {/* <SeriesCarousel /> */}
     </main>
   );
 }

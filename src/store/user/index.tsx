@@ -1,7 +1,8 @@
 import { UserProps } from "@/types/user";
+import { UserInfo } from "firebase/auth";
 import { create } from "zustand";
 
-type User = Omit<UserProps, "email">;
+type User = Omit<UserInfo, "providerId">;
 
 type ActionsProps = {
   updateUser: (update: Partial<UserProps>) => void;
@@ -17,8 +18,11 @@ interface StoreProps {
 export const useUserStore = create<StoreProps>((set) => ({
   userState: {
     user: {
-      name: "",
-      id: "",
+      displayName: "",
+      email: "",
+      phoneNumber: "",
+      photoURL: "",
+      uid: "",
     },
   },
   actions: {

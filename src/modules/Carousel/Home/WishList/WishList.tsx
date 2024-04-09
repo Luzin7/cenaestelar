@@ -1,14 +1,11 @@
 import Carousel from "@/components/Carousel";
-import { movies } from "@/data";
+import { getWishlist } from "@/services/firebase";
 
-export function WishListCarousel() {
+export async function WishListCarousel() {
+  const contents = await getWishlist();
   return (
     <>
-      <Carousel
-        content={movies}
-        contentType="wishList"
-        title="Últimos vistos"
-      />
+      <Carousel content={contents} contentType="wishList" title="Em breve" />
       {/* <Carousel content={movies} contentType="serie" title="Bem avaliados" /> */}
     </>
   );

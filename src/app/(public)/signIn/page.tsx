@@ -1,5 +1,5 @@
-import SignInForm from "@/modules/Auth/SignIn";
+import SignInView from "@/views/SignIn";
 
 export default function SignIn() {
-  return <SignInForm />;
+  return <SignInView />;
 }

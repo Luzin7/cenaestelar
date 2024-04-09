@@ -1,17 +1,28 @@
 "use client";
 
-import { moviesFullData } from "@/data";
+import { fetchMovieById } from "@/services/cenaestelarApi";
+import { ContentProps } from "@/types/content";
 import { useParams } from "next/navigation";
+import { useEffect, useState } from "react";
 import Backdrop from "./components/Backdrop";
 import MovieDetails from "./components/MovieDetails";
 import styles from "./movie.module.css";
 
 export default function MovieView() {
   const { id } = useParams();
+  const [movie, setMovie] = useState<ContentProps>();
 
-  const fetchMovie = moviesFullData.find((movie) => movie.id === id);
+  useEffect(() => {
+    const fetchMovie = async () => {
+      const response = await fetchMovieById(id as string);
 
-  if (!fetchMovie) {
+      setMovie(response);
+    };
+
+    fetchMovie();
+  }, [id]);
+
+  if (!movie) {
     return (
       <div>
         <h1>Movie not found</h1>
@@ -21,9 +32,9 @@ export default function MovieView() {
 
   return (
     <div>
-      <Backdrop backdrop={fetchMovie.banner} />
+      <Backdrop backdrop={movie.banner} />
       <main className={styles.container}>
-        <MovieDetails {...fetchMovie} />
+        <MovieDetails {...movie} />
       </main>
     </div>
   );
