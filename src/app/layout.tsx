@@ -1,7 +1,8 @@
 import { Footer } from "@/components/Footer/Footer";
 import Header from "@/components/Header";
+import GetAuthState from "@/modules/Auth/GetAuthState";
 import "@/styles/globals.css";
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Roboto } from "next/font/google";
 
 const roboto = Roboto({
@@ -25,7 +26,7 @@ export default function GlobalLayout({
     <html lang="en">
       <body className={roboto.className}>
         <Header />
-        {children}
+        <GetAuthState>{children}</GetAuthState>
         <Footer />
       </body>
     </html>

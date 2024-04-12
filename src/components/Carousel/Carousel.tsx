@@ -22,10 +22,20 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
           <SwiperSlide key={id} className={styles.carousel_content__container}>
             <div title={rating}>
               {contentType === "wishList" ? (
-                <Image fill key={id} src={poster} alt={title} />
+                <Image
+                  fill
+                  key={id}
+                  src={`https://image.tmdb.org/t/p/w500${poster}`}
+                  alt={title}
+                />
               ) : (
                 <Link href={`${pageType}/${urlSlugMaker(title)}/${id}`}>
-                  <Image fill key={id} src={poster} alt={title} />
+                  <Image
+                    fill
+                    key={id}
+                    src={`https://image.tmdb.org/t/p/w500${poster}`}
+                    alt={title}
+                  />
                 </Link>
               )}
             </div>

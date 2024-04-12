@@ -43,6 +43,7 @@ export function SignInForm() {
             phoneNumber: user.phoneNumber,
             photoURL: user.photoURL,
             uid: user.uid,
+            isLoggedIn: true,
           },
         },
       });

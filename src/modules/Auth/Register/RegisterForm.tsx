@@ -41,6 +41,7 @@ export function RegisterForm() {
             phoneNumber: user.phoneNumber,
             photoURL: user.photoURL,
             uid: user.uid,
+            isLoggedIn: false,
           },
         },
       });

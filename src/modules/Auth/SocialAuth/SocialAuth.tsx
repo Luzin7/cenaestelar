@@ -25,6 +25,7 @@ export function SocialAuth() {
             phoneNumber: user.phoneNumber,
             photoURL: user.photoURL,
             uid: user.uid,
+            isLoggedIn: true,
           },
         },
       });
@@ -32,7 +33,6 @@ export function SocialAuth() {
       router.replace(localPaths.HOME);
     } catch (error) {
       alert("Erro ao fazer o login.");
-      console.error(error);
     }
   };
   return (

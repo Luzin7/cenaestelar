@@ -1,11 +1,12 @@
-import { UserProps } from "@/types/user";
 import { UserInfo } from "firebase/auth";
 import { create } from "zustand";
 
-type User = Omit<UserInfo, "providerId">;
+type User = Omit<UserInfo, "providerId"> & {
+  isLoggedIn: boolean;
+};
 
 type ActionsProps = {
-  updateUser: (update: Partial<UserProps>) => void;
+  updateUser: (update: Partial<UserInfo>) => void;
 };
 
 interface StoreProps {
@@ -23,6 +24,7 @@ export const useUserStore = create<StoreProps>((set) => ({
       phoneNumber: "",
       photoURL: "",
       uid: "",
+      isLoggedIn: false,
     },
   },
   actions: {

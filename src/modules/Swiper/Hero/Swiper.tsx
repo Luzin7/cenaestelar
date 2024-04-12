@@ -51,7 +51,12 @@ export function HeroSwiper({ banners }: HeroSwiperProps) {
                   Saiba mais
                 </Link>
               </div>
-              <Image fill key={id} src={banner} alt={title} />
+              <Image
+                fill
+                key={id}
+                src={`https://image.tmdb.org/t/p/original${banner}`}
+                alt={title}
+              />
             </div>
           </SwiperSlide>
         ))}

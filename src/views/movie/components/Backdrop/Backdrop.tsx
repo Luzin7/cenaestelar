@@ -9,7 +9,11 @@ export function Backdrop({ backdrop }: BackdropProps) {
   return (
     <div className={styles.backdrop_container}>
       <div className={styles.backdrop_content__container}>
-        <Image src={backdrop} alt="backdrop" fill />
+        <Image
+          src={`https://image.tmdb.org/t/p/original${backdrop}`}
+          alt="backdrop"
+          fill
+        />
       </div>
     </div>
   );
