@@ -7,10 +7,18 @@ export default async function HomeView() {
   const movies = useMoviesStore.getState().movieState.movies;
   return (
     <main>
-      <HeroSwiper banners={movies} />
-      <MoviesCarousel />
-      <WishListCarousel />
-      {/* <SeriesCarousel /> */}
+      {movies.length > 0 ? (
+        <>
+          <HeroSwiper banners={movies} />
+          <MoviesCarousel />
+          <WishListCarousel />
+        </>
+      ) : (
+        <>
+          <h1>Os guri nao achou nada :(</h1>
+          <WishListCarousel />
+        </>
+      )}
     </main>
   );
 }
