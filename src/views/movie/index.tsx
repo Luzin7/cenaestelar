@@ -25,7 +25,7 @@ export default function MovieView() {
   if (!movie) {
     return (
       <div>
-        <h1>Movie not found</h1>
+        <h1>Não há nada aqui! :o</h1>
       </div>
     );
   }
