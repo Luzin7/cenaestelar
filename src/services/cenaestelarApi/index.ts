@@ -15,7 +15,7 @@ export async function fetchAllMovies(): Promise<ContentProps[]> {
 
     return data.movies;
   } catch (error) {
-    throw new Error("Erro ao buscar filmes", error as ErrorOptions);
+    return [];
   }
 }
 
