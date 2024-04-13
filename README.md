@@ -1,19 +1,41 @@
-# TREINANDO LÓGICA DE PROGRAMAÇÃO BÁSICA EM JAVASCRIPT
+# Cena Estelar
 
-Aqui você terá algumas tarefas para treinar sua lógica básica de programação. Evite o uso de ferramentas externas como intelingecias artificais e afins.
+Cena Estelar é um projeto em desenvolvimento de filmes que assisti com meus amigos. Junto aos títulos, adicionamos nossas opiniões, média de notas e disponibilzamos uma seção de filmes que pretendemos assistir.
 
-Lembre-se que lógica de programação nada mais é do que saber o que quer fazer e em qual ordem. Entenda algoritmos para entender a frase anterior.
+Este é um projeto que utilizo para estudos e testes, portanto, caso esteja interessado em olhar o código, deixo claro que podem existir partes e arquivos inacabados e/ou em construção. O mesmo vale para commits que podem estar totalmente fora do convencional e/ou do correto.
+Este é meu projeto "laboratório".
 
-#### Cinco Atividades para praticar conceitos básicos de lógica de programação
+## Stacks utilizadas
 
-- Soma de números pares
-  - Crie um programa que, ao receber um número inteiro positivo, calcule e retorne a soma de todos os números pares até esse que foi recebido.
-- Fatorial de um número
-  - Crie um programa que, ao receber um número inteiro positivo, calcule e retorne o fatorial desse número.
-- Verificar número primo
-  - Crie um programa que, ao receber um número, calcule e retorne se o número é primo ou não.
-- Ordenação de lista: Crie um programa que ordene uma lista de números fornecidos em ordem crescente e decrescente.
-- Contagem regressiva:
-  - Crie um progrmaa que, ao receber um número inteiro positivo, calcule e retorne uma contagem regressiva a partir do número recebido até o 1.
+- **Front-end:** Next.js
+- **Back-end:** Firebase, [Node.js](https://github.com/Luzin7/cenaestelar-be)
 
-Se tiver alguma dúvida basta chamar :)
+## Rodando localmente
+
+Clone o projeto
+
+```bash
+  git clone https://github.com/Luzin7/cenaestelar
+```
+
+Entre no diretório do projeto
+
+```bash
+  cd cenaestelar
+```
+
+Instale as dependências
+
+```bash
+  npm install
+```
+
+Inicie o servidor
+
+```bash
+  npm run dev
+```
+
+## Feedback
+
+Se tiver alguma dúvida, sugestão ou apenas quiser trocar ideias sobre o Cena Estelar, sinta-se à vontade para entrar em contato.
