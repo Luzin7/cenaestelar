@@ -19,27 +19,40 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
       <h1>{title}</h1>
       <Swiper slidesPerView={5.25} spaceBetween={20} grabCursor={true}>
         {content.map(({ id, rating, title, poster }) => (
-          <SwiperSlide key={id} className={styles.carousel_content__container}>
-            <div title={rating}>
-              {contentType === "wishList" ? (
+          <>
+            {contentType === "wishList" ? (
+              <SwiperSlide
+                key={id}
+                className={styles.carousel_wishlist__container}
+              >
                 <Image
                   fill
-                  key={id}
+                  sizes="(max-width: 300px)"
                   src={`https://image.tmdb.org/t/p/w500${poster}`}
                   alt={title}
+                  loading="lazy"
                 />
-              ) : (
+              </SwiperSlide>
+            ) : (
+              <SwiperSlide
+                key={id}
+                className={styles.carousel_content__container}
+              >
                 <Link href={`${pageType}/${urlSlugMaker(title)}/${id}`}>
-                  <Image
-                    fill
-                    key={id}
-                    src={`https://image.tmdb.org/t/p/w500${poster}`}
-                    alt={title}
-                  />
+                  <div className={styles.image_container}>
+                    <Image
+                      layout="fill"
+                      objectFit="cover"
+                      objectPosition="center"
+                      src={`https://image.tmdb.org/t/p/w500${poster}`}
+                      alt={title}
+                      loading="lazy"
+                    />
+                  </div>
                 </Link>
-              )}
-            </div>
-          </SwiperSlide>
+              </SwiperSlide>
+            )}
+          </>
         ))}
       </Swiper>
     </section>

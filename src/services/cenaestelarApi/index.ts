@@ -1,6 +1,7 @@
 "use server";
 
 import { ContentProps } from "@/types/content";
+import * as tmdbServices from "../tmdbApi";
 import apiClient from "./axios.config";
 
 const routes = {
@@ -29,24 +30,24 @@ export async function fetchMovieById(id: string): Promise<ContentProps> {
   }
 }
 
-// export async function addMovie(id: number): Promise<void> {
-//   try {
-//     const response = await tmdbServices.fetchMovieById(id);
+export async function addMovie(id: number): Promise<void> {
+  try {
+    const response = await tmdbServices.fetchMovieById(id);
 
-//     await apiClient.post(routes.addMovie, {
-//       banner: response.backdrop_path,
-//       cast: [],
-//       description: response.overview,
-//       directors: [],
-//       genres: response.genres,
-//       media: response.video,
-//       poster: response.poster_path,
-//       rating: response.vote_average.toString(),
-//       releaseDate: response.release_date,
-//       shortDescription: response.tagline,
-//       title: response.title,
-//     });
-//   } catch (error) {
-//     throw new Error("Erro ao buscar filme", error as ErrorOptions);
-//   }
-// }
+    await apiClient.post(routes.addMovie, {
+      banner: response.backdrop_path,
+      cast: [],
+      description: response.overview,
+      directors: [],
+      genres: response.genres,
+      media: response.video,
+      poster: response.poster_path,
+      rating: response.vote_average.toString(),
+      releaseDate: response.release_date,
+      shortDescription: response.tagline,
+      title: response.title,
+    });
+  } catch (error) {
+    throw new Error("Erro ao buscar filme", error as ErrorOptions);
+  }
+}
