@@ -4,6 +4,8 @@ import GetAuthState from "@/modules/Auth/GetAuthState";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -25,6 +27,13 @@ export default function GlobalLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          newestOnTop
+          closeOnClick
+          theme="dark"
+        />
         <Header />
         <GetAuthState>{children}</GetAuthState>
         <Footer />
