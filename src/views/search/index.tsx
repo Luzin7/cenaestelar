@@ -1,5 +1,5 @@
-import ContentList from "./components/contentList";
-import SearchForm from "./components/searchForm";
+import ContentList from "./components/ContentList";
+import SearchForm from "./components/SearchForm";
 
 export default function SearchView() {
   return (

@@ -52,9 +52,13 @@ export async function addMovie(id: number): Promise<void> {
     throw new Error("Erro ao buscar filme", error as ErrorOptions);
   }
 }
-export async function searchTitle(title: string): Promise<ContentProps[]> {
+export async function searchContentByTitle(
+  ContentTitle: string,
+): Promise<ContentProps[]> {
   try {
-    const { data } = await apiClient.get(`${routes.searchMovie}${title}`);
+    const { data } = await apiClient.get(
+      `${routes.searchMovie}${ContentTitle}`,
+    );
 
     return data.movies;
   } catch (error) {

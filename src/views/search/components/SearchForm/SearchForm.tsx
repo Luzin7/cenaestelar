@@ -1,14 +1,16 @@
 "use client";
+
 import { Form } from "@/components/Form";
 import { useLoading } from "@/hooks/useLoading";
 import {
   searchMovie,
   searchMovieProps,
 } from "@/schemas/recommendation/querySchema";
-import { searchTitle } from "@/services/cenaestelarApi";
+import { searchContentByTitle } from "@/services/cenaestelarApi";
 import { useMoviesStore } from "@/store/movies";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import styles from "./searchForm.module.css";
 
 export function SearchForm() {
@@ -22,28 +24,29 @@ export function SearchForm() {
     resolver: zodResolver(searchMovie),
   });
 
-  const onSubmit = async ({ query }: searchMovieProps) => {
-    setIsLoading(true);
+  const onSubmit = async ({ contentTitle }: searchMovieProps) => {
+    setIsLoading((prevState) => !prevState);
     try {
-      const response = await searchTitle(query);
+      const response = await searchContentByTitle(contentTitle);
       useMoviesStore.setState({ movieState: { movies: response } });
+      setIsLoading((prevState) => !prevState);
     } catch (error) {
-    } finally {
-      setIsLoading(false);
+      setIsLoading((prevState) => !prevState);
+      toast.error("Não foi possível encontrar o filme");
     }
   };
 
   return (
     <Form.Wrapper onSubmit={handleSubmit(onSubmit)}>
       <div className={styles.container}>
-        <h2>Faça a sua Busca!</h2>
+        <h2>Procure seu filme favorito!</h2>
         <Form.Input
           type="text"
-          placeholder="Nome do filme"
-          {...register("query")}
+          placeholder="Título do filme"
+          {...register("contentTitle")}
         />
-        {errors.query?.message !== undefined && (
-          <Form.Error errorMessage={errors.query.message} />
+        {errors.contentTitle?.message !== undefined && (
+          <Form.Error errorMessage={errors.contentTitle.message} />
         )}
         <Form.Button type="submit" disabled={!!isLoading}>
           {isLoading ? "Buscando filme..." : "Buscar filme"}
