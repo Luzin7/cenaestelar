@@ -24,10 +24,10 @@ export function SearchForm() {
     resolver: zodResolver(searchMovie),
   });
 
-  const onSubmit = async ({ contentTitle }: searchMovieProps) => {
+  const onSubmit = async ({ query }: searchMovieProps) => {
     setIsLoading((prevState) => !prevState);
     try {
-      const response = await searchContentByTitle(contentTitle);
+      const response = await searchContentByTitle(query);
       useMoviesStore.setState({ movieState: { movies: response } });
       setIsLoading((prevState) => !prevState);
     } catch (error) {
@@ -43,10 +43,10 @@ export function SearchForm() {
         <Form.Input
           type="text"
           placeholder="Título do filme"
-          {...register("contentTitle")}
+          {...register("query")}
         />
-        {errors.contentTitle?.message !== undefined && (
-          <Form.Error errorMessage={errors.contentTitle.message} />
+        {errors.query?.message !== undefined && (
+          <Form.Error errorMessage={errors.query.message} />
         )}
         <Form.Button type="submit" disabled={!!isLoading}>
           {isLoading ? "Buscando filme..." : "Buscar filme"}
