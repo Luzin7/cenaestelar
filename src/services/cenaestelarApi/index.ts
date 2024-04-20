@@ -8,6 +8,7 @@ const routes = {
   fetchAllMovies: "/movies",
   addMovie: "/movies",
   fetchMovieById: "/movie",
+  searchMovie: "/movies?query=",
 };
 
 export async function fetchAllMovies(): Promise<ContentProps[]> {
@@ -49,5 +50,14 @@ export async function addMovie(id: number): Promise<void> {
     });
   } catch (error) {
     throw new Error("Erro ao buscar filme", error as ErrorOptions);
+  }
+}
+export async function searchTitle(title: string): Promise<ContentProps[]> {
+  try {
+    const { data } = await apiClient.get(`${routes.searchMovie}${title}`);
+
+    return data.movies;
+  } catch (error) {
+    throw new Error("Erro ao buscar filme");
   }
 }
