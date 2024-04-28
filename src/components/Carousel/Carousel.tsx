@@ -18,7 +18,7 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
     <section className={styles.carousel_section}>
       <h1>{title}</h1>
       <Swiper slidesPerView={5.25} spaceBetween={20} grabCursor={true}>
-        {content.map(({ id, rating, title, poster }) => (
+        {content.map(({ id, title, poster }) => (
           <>
             {contentType === "wishList" ? (
               <SwiperSlide
@@ -41,7 +41,7 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
                 <Link href={`${pageType}/${urlSlugMaker(title)}/${id}`}>
                   <div className={styles.image_container}>
                     <Image
-                      layout="fill"
+                      fill
                       objectFit="cover"
                       objectPosition="center"
                       src={`https://image.tmdb.org/t/p/w500${poster}`}

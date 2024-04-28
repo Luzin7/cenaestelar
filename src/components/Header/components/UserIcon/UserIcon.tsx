@@ -27,9 +27,9 @@ export function UserIcon() {
             <Link href={localPaths.RECOMMENDATION} className={styles.icon_link}>
               Recomendar
             </Link>
-            <Link href={localPaths.HOME} className={styles.icon_link}>
+            {/* <Link href={localPaths.HOME} className={styles.icon_link}>
               Sair
-            </Link>
+            </Link> */}
           </div>
         </div>
       ) : (

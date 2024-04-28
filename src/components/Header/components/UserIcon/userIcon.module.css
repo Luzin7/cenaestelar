@@ -15,6 +15,7 @@
   transition: all 0.2s ease;
   overflow: hidden;
   min-width: 15vh;
+  z-index: 99;
 }
 #dropdown_active a {
   text-align: center;

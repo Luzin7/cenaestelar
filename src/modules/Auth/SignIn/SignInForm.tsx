@@ -14,6 +14,7 @@ import {
 } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { toast } from "react-toastify";
 import styles from "../style/formAuth.module.css";
 
 export function SignInForm() {
@@ -48,13 +49,20 @@ export function SignInForm() {
         },
       });
 
+      localStorage.setItem(
+        "u_i",
+        JSON.stringify({
+          name: user.displayName,
+          uid: user.uid,
+          isLoggedIn: true,
+        }),
+      );
+      localStorage.setItem("isLoggedIn", "true");
       setIsLoading((prevState) => !prevState);
       router.replace(localPaths.HOME);
     } catch (error) {
-      alert("Erro ao fazer o login. Verifique seu email e senha.");
-
+      toast.error("Erro ao fazer o login. Verifique seu email e senha.");
       setIsLoading((prevState) => !prevState);
-      // setIsModalOpen((prev) => !prev);
     }
   };
   return (

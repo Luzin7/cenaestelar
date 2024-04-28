@@ -1,4 +1,4 @@
-import SearchView from "@/views/search";
+import SearchView from "@/modules/Search";
 
 export default function Search() {
   return <SearchView />;

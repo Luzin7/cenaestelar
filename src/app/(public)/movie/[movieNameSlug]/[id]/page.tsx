@@ -1,4 +1,4 @@
-import MovieView from "@/views/movie";
+import MovieView from "@/modules/Movie";
 
 export default function Movie() {
   return <MovieView />;

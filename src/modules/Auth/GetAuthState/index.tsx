@@ -10,6 +10,35 @@ export default function GetAuthState({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const userInfoLocalStorage = localStorage.getItem("u_i");
+
+  // if (!userInfoLocalStorage) {
+  //   localStorage.setItem("isLoggedIn", "false");
+  //   return children;
+  // }
+
+  // const {
+  //   isLoggedIn,
+  //   name,
+  //   uid,
+  // }: {
+  //   name: string;
+  //   uid: string;
+  //   isLoggedIn: boolean;
+  // } = JSON.parse(userInfoLocalStorage);
+
+  // useUserStore.setState({
+  //   userState: {
+  //     user: {
+  //       displayName: name,
+  //       email: "",
+  //       phoneNumber: "",
+  //       photoURL: "",
+  //       uid,
+  //       isLoggedIn,
+  //     },
+  //   },
+  // });
   onAuthStateChanged(auth, (user) => {
     if (!user) {
       return;
@@ -29,6 +58,14 @@ export default function GetAuthState({
         },
       });
 
+      localStorage.setItem(
+        "u_i",
+        JSON.stringify({
+          name: user.displayName,
+          uid: user.uid,
+          isLoggedIn: true,
+        }),
+      );
       localStorage.setItem("isLoggedIn", "true");
     }
   });

@@ -1,5 +1,8 @@
 "use server";
 
+import { BadRequestError } from "@/shared/errors/BadRequestError";
+import { NotFoundError } from "@/shared/errors/NotFoundError";
+import { ErrorPresenter } from "@/shared/presenter/ErrorPresenter";
 import { ContentProps } from "@/types/content";
 import * as tmdbServices from "../tmdbApi";
 import apiClient from "./axios.config";
@@ -8,7 +11,7 @@ const routes = {
   fetchAllMovies: "/movies",
   addMovie: "/movies",
   fetchMovieById: "/movie",
-  searchMovie: "/movies?query=",
+  searchMovie: "/movies?title=",
 };
 
 export async function fetchAllMovies(): Promise<ContentProps[]> {
@@ -17,7 +20,11 @@ export async function fetchAllMovies(): Promise<ContentProps[]> {
 
     return data.movies;
   } catch (error) {
-    return [];
+    if (error.response.status === 404) {
+      throw ErrorPresenter.hadleError(new NotFoundError());
+    }
+
+    throw ErrorPresenter.hadleError(new BadRequestError());
   }
 }
 
@@ -27,41 +34,59 @@ export async function fetchMovieById(id: string): Promise<ContentProps> {
 
     return data.movie;
   } catch (error) {
-    throw new Error("Erro ao buscar filme", error as ErrorOptions);
+    if (error.response.status === 404) {
+      throw ErrorPresenter.hadleError(new NotFoundError());
+    }
+
+    throw ErrorPresenter.hadleError(new BadRequestError());
   }
 }
 
-export async function addMovie(id: number): Promise<void> {
+export async function addMovie(
+  id: number,
+  shortDescription: string,
+  description: string,
+  rating: string,
+): Promise<void> {
   try {
     const response = await tmdbServices.fetchMovieById(id);
 
     await apiClient.post(routes.addMovie, {
       banner: response.backdrop_path,
       cast: [],
-      description: response.overview,
+      description,
       directors: [],
       genres: response.genres,
       media: response.video,
       poster: response.poster_path,
-      rating: response.vote_average.toString(),
+      rating,
+      globalRating: response.vote_average.toString(),
       releaseDate: response.release_date,
-      shortDescription: response.tagline,
+      shortDescription,
       title: response.title,
     });
   } catch (error) {
-    throw new Error("Erro ao buscar filme", error as ErrorOptions);
+    if (error.response.status === 404) {
+      throw ErrorPresenter.hadleError(new NotFoundError());
+    }
+
+    throw ErrorPresenter.hadleError(new BadRequestError());
   }
 }
 export async function searchContentByTitle(
   ContentTitle: string,
 ): Promise<ContentProps[]> {
   try {
-    const { data } = await apiClient.get(
+    const response = await apiClient.get(
       `${routes.searchMovie}${ContentTitle}`,
     );
 
-    return data.movies;
+    return response.data.movies;
   } catch (error) {
-    throw new Error("Erro ao buscar filme");
+    if (error.response.status === 404) {
+      throw ErrorPresenter.hadleError(new NotFoundError());
+    }
+
+    throw ErrorPresenter.hadleError(new BadRequestError());
   }
 }

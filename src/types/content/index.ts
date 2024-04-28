@@ -19,6 +19,7 @@ export interface ContentProps {
   media: string;
   banner: string;
   rating: string;
+  globalRating: string;
   shortDescription: string;
   description: string;
   releaseDate: string;

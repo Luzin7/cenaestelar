@@ -6,6 +6,7 @@ import { localPaths } from "@/utils/localPaths";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useRouter } from "next/navigation";
 import { BsGoogle } from "react-icons/bs";
+import { toast } from "react-toastify";
 import styles from "./socialAuth.module.css";
 
 export function SocialAuth() {
@@ -30,9 +31,19 @@ export function SocialAuth() {
         },
       });
 
+      localStorage.setItem(
+        "u_i",
+        JSON.stringify({
+          name: user.displayName,
+          uid: user.uid,
+          isLoggedIn: true,
+        }),
+      );
+      localStorage.setItem("isLoggedIn", "true");
+
       router.replace(localPaths.HOME);
     } catch (error) {
-      alert("Erro ao fazer o login.");
+      toast.error("Erro ao fazer o login.");
     }
   };
   return (
