@@ -12,12 +12,12 @@ export function NavigationLinks() {
         <li>
           <Link href={localPaths.MOVIES}>Filmes</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href={localPaths.SERIES}>Séries</Link>
         </li>
         <li>
           <Link href={localPaths.CATEGORIES}>Categorias</Link>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );

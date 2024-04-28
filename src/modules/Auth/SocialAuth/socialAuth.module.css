@@ -1,0 +1,35 @@
+.social_wrapper {
+  display: flex;
+  flex-flow: column wrap;
+  font-size: 1rem;
+}
+.social_wrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--secondary);
+  padding: 1rem;
+  font-size: 1rem;
+  color: var(--text);
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.social_wrapper button:hover {
+  background: var(--primary);
+}
+
+@media only screen and (min-width: 768px) {
+  .social_wrapper {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  .social_wrapper button {
+    flex-grow: 1;
+  }
+}/*# sourceMappingURL=socialAuth.module.css.map */

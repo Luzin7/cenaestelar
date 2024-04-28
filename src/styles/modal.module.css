@@ -1,0 +1,34 @@
+.container {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 50%;
+  transform: translateX(-50%);
+  transform: translateY(-50%);
+  z-index: 99;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.content_wrapper {
+  position: fixed;
+  top: 40%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 1rem;
+  border-radius: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  min-width: 10vw;
+}
+.content_wrapper h2 {
+  font-weight: bold;
+  font-size: 1.5rem;
+  text-align: center;
+}
+.content_wrapper input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+.content_wrapper textarea {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}/*# sourceMappingURL=modal.module.css.map */

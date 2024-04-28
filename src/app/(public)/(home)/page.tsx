@@ -1,14 +1,14 @@
-import { data } from "@/data";
-import MoviesCarousel from "@/modules/Carousel/Home/Movies";
-import SeriesCarousel from "@/modules/Carousel/Home/Series";
-import HeroSwiper from "@/modules/Hero/Swiper";
+import HomeView from "@/modules/Home";
+import { fetchAllMovies } from "@/services/cenaestelarApi";
+import { useMoviesStore } from "@/store/movies";
 
-export default function Home() {
-  return (
-    <main>
-      <HeroSwiper banners={data} />
-      <MoviesCarousel />
-      <SeriesCarousel />
-    </main>
-  );
+export default async function Home() {
+  const data = await fetchAllMovies();
+
+  useMoviesStore.setState({
+    movieState: {
+      movies: data,
+    },
+  });
+  return <HomeView />;
 }

@@ -39,4 +39,3 @@ Inicie o servidor
 ## Feedback
 
 Se tiver alguma dúvida, sugestão ou apenas quiser trocar ideias sobre o Cena Estelar, sinta-se à vontade para entrar em contato.
-

@@ -1,8 +1,11 @@
+import { Footer } from "@/components/Footer/Footer";
 import Header from "@/components/Header";
-import { Footer } from "@/modules/Footer/Footer";
+import GetAuthState from "@/modules/Auth/GetAuthState";
 import "@/styles/globals.css";
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Roboto } from "next/font/google";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const roboto = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -16,7 +19,7 @@ export const metadata: Metadata = {
   description: "Reviews duvidosas, ou não.",
 };
 
-export default function RootLayout({
+export default function GlobalLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
@@ -24,8 +27,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={roboto.className}>
+        <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          newestOnTop
+          closeOnClick
+          theme="dark"
+        />
         <Header />
-        {children}
+        <GetAuthState>{children}</GetAuthState>
         <Footer />
       </body>
     </html>
