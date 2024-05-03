@@ -10,12 +10,12 @@ export default function PrivateLayout({
   children: React.ReactNode;
 }>) {
   const router = useRouter();
-  const isAuth = useUserStore.getState().userState.user.isLoggedIn;
+  if (typeof window !== "undefined") {
+    const isAuth = useUserStore.getState().userState.user.isLoggedIn;
 
-  if (isAuth) {
-    return <>{children}</>;
-  } else {
-    router.replace(localPaths.SIGNIN);
-    return null;
+    if (!isAuth) {
+      return router.replace(localPaths.SIGNIN);
+    }
   }
+  return <>{children}</>;
 }

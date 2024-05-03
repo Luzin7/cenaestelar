@@ -4,6 +4,7 @@ import { BadRequestError } from "@/shared/errors/BadRequestError";
 import { NotFoundError } from "@/shared/errors/NotFoundError";
 import { ErrorPresenter } from "@/shared/presenter/ErrorPresenter";
 import { ContentProps } from "@/types/content";
+import { AxiosError } from "axios";
 import * as tmdbServices from "../tmdbApi";
 import apiClient from "./axios.config";
 
@@ -20,7 +21,7 @@ export async function fetchAllMovies(): Promise<ContentProps[]> {
 
     return data.movies;
   } catch (error) {
-    if (error.response.status === 404) {
+    if ((error as AxiosError).response?.status === 404) {
       throw ErrorPresenter.hadleError(new NotFoundError());
     }
 
@@ -34,7 +35,7 @@ export async function fetchMovieById(id: string): Promise<ContentProps> {
 
     return data.movie;
   } catch (error) {
-    if (error.response.status === 404) {
+    if ((error as AxiosError).response?.status === 404) {
       throw ErrorPresenter.hadleError(new NotFoundError());
     }
 
@@ -66,7 +67,7 @@ export async function addMovie(
       title: response.title,
     });
   } catch (error) {
-    if (error.response.status === 404) {
+    if ((error as AxiosError).response?.status === 404) {
       throw ErrorPresenter.hadleError(new NotFoundError());
     }
 
@@ -83,7 +84,7 @@ export async function searchContentByTitle(
 
     return response.data.movies;
   } catch (error) {
-    if (error.response.status === 404) {
+    if ((error as AxiosError).response?.status === 404) {
       throw ErrorPresenter.hadleError(new NotFoundError());
     }
 

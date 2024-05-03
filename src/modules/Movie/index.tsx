@@ -2,6 +2,7 @@
 
 import { fetchMovieById } from "@/services/cenaestelarApi";
 import { ContentProps } from "@/types/content";
+import { AxiosError } from "axios";
 import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -19,8 +20,12 @@ export default function MovieView() {
         const response = await fetchMovieById(id as string);
 
         setMovie(response);
-      } catch (error) {
-        toast.error(error.message);
+      } catch (error: unknown) {
+        if ((error as AxiosError).response?.status === 404) {
+          toast.error("Movie not found.");
+        } else {
+          toast.error("An error occurred while fetching the movie.");
+        }
       }
     };
 

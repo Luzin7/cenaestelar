@@ -12,7 +12,7 @@ import { toast } from "react-toastify";
 import styles from "./adminSearchForm.module.css";
 
 export function AdminSearchForm() {
-  const { isLoading, setIsLoading } = useLoading();
+  const { setIsLoading } = useLoading();
 
   const {
     handleSubmit,

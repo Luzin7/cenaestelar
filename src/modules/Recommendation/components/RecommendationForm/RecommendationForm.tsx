@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 import styles from "./recommendationForm.module.css";
 
 export function RecommendationForm() {
-  const { isLoading, setIsLoading } = useLoading();
+  const { setIsLoading } = useLoading();
 
   const {
     handleSubmit,

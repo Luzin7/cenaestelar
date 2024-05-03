@@ -8,14 +8,16 @@ export default function AdminLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const routes = useRouter();
+  const router = useRouter();
 
-  const adminSuperStrongVerificationThatNobodyCanPassBecauseIsSuperStrong =
-    localStorage.getItem("adminSuperStrongVerification") ===
-    process.env.NEXT_PUBLIC_ADMIN_SUPER_STRONG_ID;
+  if (typeof window !== "undefined") {
+    const adminSuperStrongVerificationThatNobodyCanPassBecauseIsSuperStrong =
+      localStorage.getItem("adminSuperStrongVerification") ===
+      process.env.NEXT_PUBLIC_ADMIN_SUPER_STRONG_ID;
 
-  if (!adminSuperStrongVerificationThatNobodyCanPassBecauseIsSuperStrong) {
-    return routes.replace(localPaths.SIGNIN);
+    if (!adminSuperStrongVerificationThatNobodyCanPassBecauseIsSuperStrong) {
+      return router.replace(localPaths.SIGNIN);
+    }
   }
 
   return <>{children}</>;
