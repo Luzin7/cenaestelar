@@ -12,6 +12,20 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import styles from "./swiper.module.css";
 
+const getSwiperWidth = () => {
+  const windowWidth = window.innerWidth;
+  const mobile = 390;
+  const desktop = 1920;
+
+  if (windowWidth >= desktop) {
+    return "1800px";
+  } else if (windowWidth <= mobile) {
+    return "100vw";
+  }
+
+  return "100vw";
+};
+
 export function HeroSwiper({ banners }: HeroSwiperProps) {
   return (
     <section>
@@ -33,7 +47,7 @@ export function HeroSwiper({ banners }: HeroSwiperProps) {
           <SwiperSlide
             key={id}
             style={{
-              width: "1800px",
+              width: getSwiperWidth(),
               height: "500px",
               marginLeft: "40px",
             }}
