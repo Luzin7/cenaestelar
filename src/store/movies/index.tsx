@@ -10,6 +10,8 @@ type ActionsProps = {
 export interface StoreProps {
   movieState: {
     movies: Movie[];
+    topMovies: Movie[];
+    highlights: Movie[];
   };
   actions: ActionsProps;
 }
@@ -17,6 +19,8 @@ export interface StoreProps {
 export const useMoviesStore = create<StoreProps>((set) => ({
   movieState: {
     movies: [],
+    topMovies: [],
+    highlights: [],
   },
   actions: {
     updateMoviesState: (update) =>
