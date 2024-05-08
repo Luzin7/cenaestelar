@@ -10,6 +10,8 @@ import apiClient from "./axios.config";
 
 const routes = {
   fetchAllMovies: "/movies",
+  fetchBestMoviesSeen: "/movies/top",
+  fetchHighLights: "/movies/highlights",
   addMovie: "/movies",
   fetchMovieById: "/movie",
   searchMovie: "/movies?title=",
@@ -18,6 +20,34 @@ const routes = {
 export async function fetchAllMovies(): Promise<ContentProps[]> {
   try {
     const { data } = await apiClient.get(routes.fetchAllMovies);
+
+    return data.movies;
+  } catch (error) {
+    if ((error as AxiosError).response?.status === 404) {
+      throw ErrorPresenter.hadleError(new NotFoundError());
+    }
+
+    throw ErrorPresenter.hadleError(new BadRequestError());
+  }
+}
+
+export async function fetchBestMoviesSeen(): Promise<ContentProps[]> {
+  try {
+    const { data } = await apiClient.get(routes.fetchBestMoviesSeen);
+
+    return data.movies;
+  } catch (error) {
+    if ((error as AxiosError).response?.status === 404) {
+      throw ErrorPresenter.hadleError(new NotFoundError());
+    }
+
+    throw ErrorPresenter.hadleError(new BadRequestError());
+  }
+}
+
+export async function fetchHighLights(): Promise<ContentProps[]> {
+  try {
+    const { data } = await apiClient.get(routes.fetchHighLights);
 
     return data.movies;
   } catch (error) {
