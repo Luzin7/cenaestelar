@@ -2,7 +2,7 @@ import Carousel from "@/components/Carousel";
 import { useMoviesStore } from "@/store/movies";
 
 export function MoviesCarousel() {
-  const { movies, topMovies } = useMoviesStore.getState().movieState;
+  const { movies, topMovies } = useMoviesStore.getState();
 
   return (
     <>

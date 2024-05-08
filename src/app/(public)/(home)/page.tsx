@@ -14,11 +14,9 @@ export default async function Home() {
   const highlights = await fetchHighLights();
 
   useMoviesStore.setState({
-    movieState: {
-      movies,
-      topMovies,
-      highlights,
-    },
+    movies,
+    topMovies,
+    highlights,
   });
   return <HomeView />;
 }

@@ -4,7 +4,7 @@ import HeroSwiper from "@/modules/Swiper/Hero";
 import { useMoviesStore } from "@/store/movies";
 
 export default async function HomeView() {
-  const { highlights } = useMoviesStore.getState().movieState;
+  const { highlights } = useMoviesStore.getState();
   return (
     <main>
       {highlights.length > 0 ? (
