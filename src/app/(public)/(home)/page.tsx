@@ -1,14 +1,22 @@
 import HomeView from "@/modules/Home";
-import { fetchAllMovies } from "@/services/cenaestelarApi";
+import {
+  fetchAllMovies,
+  fetchBestMoviesSeen,
+  fetchHighLights,
+} from "@/services/cenaestelarApi";
 import { useMoviesStore } from "@/store/movies";
 
+export const revalidate = 2400;
+
 export default async function Home() {
-  const data = await fetchAllMovies();
+  const movies = await fetchAllMovies();
+  const topMovies = await fetchBestMoviesSeen();
+  const highlights = await fetchHighLights();
 
   useMoviesStore.setState({
-    movieState: {
-      movies: data,
-    },
+    movies,
+    topMovies,
+    highlights,
   });
   return <HomeView />;
 }

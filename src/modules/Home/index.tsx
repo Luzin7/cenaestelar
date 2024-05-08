@@ -4,19 +4,18 @@ import HeroSwiper from "@/modules/Swiper/Hero";
 import { useMoviesStore } from "@/store/movies";
 
 export default async function HomeView() {
-  const movies = useMoviesStore.getState().movieState.movies;
+  const { highlights } = useMoviesStore.getState();
   return (
     <main>
-      {movies.length > 0 ? (
+      {highlights.length > 0 ? (
         <>
-          <HeroSwiper banners={movies} />
+          <HeroSwiper banners={highlights} />
           <MoviesCarousel />
           <WishListCarousel />
         </>
       ) : (
         <>
           <h1>Os guri nao achou nada :(</h1>
-          <WishListCarousel />
         </>
       )}
     </main>

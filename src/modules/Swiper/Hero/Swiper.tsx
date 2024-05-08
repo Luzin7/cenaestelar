@@ -33,7 +33,7 @@ export function HeroSwiper({ banners }: HeroSwiperProps) {
           <SwiperSlide
             key={id}
             style={{
-              width: "1800px",
+              width: "100vw",
               height: "500px",
               marginLeft: "40px",
             }}

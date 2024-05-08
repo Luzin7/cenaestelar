@@ -8,11 +8,11 @@ import Link from "next/link";
 import styles from "./contentList.module.css";
 
 export function ContentList() {
-  const { movieState } = useMoviesStore();
+  const { movies } = useMoviesStore();
 
   return (
     <div className={styles.container}>
-      {movieState.movies.map(({ poster, id, title }: ContentProps) => (
+      {movies.map(({ poster, id, title }: ContentProps) => (
         <div key={id} className={styles.content_wrapper}>
           <Link href={`/movie/${urlSlugMaker(title)}/${id}`}>
             <Image

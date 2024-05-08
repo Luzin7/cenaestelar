@@ -26,7 +26,7 @@ export function SearchForm() {
     setIsLoading((prevState) => !prevState);
     try {
       const response = await searchContentByTitle(query);
-      useMoviesStore.setState({ movieState: { movies: response } });
+      useMoviesStore.setState({ movies: response });
       setIsLoading((prevState) => !prevState);
     } catch (error) {
       setIsLoading((prevState) => !prevState);
