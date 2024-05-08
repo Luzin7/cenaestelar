@@ -9,9 +9,9 @@ export function NavigationLinks() {
         <li>
           <Link href={localPaths.HOME}>Início</Link>
         </li>
-        <li>
+        {/* <li>
           <Link href={localPaths.MOVIES}>Filmes</Link>
-        </li>
+        </li> */}
         {/* <li>
           <Link href={localPaths.SERIES}>Séries</Link>
         </li>
