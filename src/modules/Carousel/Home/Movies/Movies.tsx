@@ -2,7 +2,7 @@ import Carousel from "@/components/Carousel";
 import { useMoviesStore } from "@/store/movies";
 
 export function MoviesCarousel() {
-  const { movies } = useMoviesStore.getState().movieState;
+  const { movies, topMovies } = useMoviesStore.getState().movieState;
 
   return (
     <>
@@ -11,11 +11,7 @@ export function MoviesCarousel() {
         contentType="movie"
         title="Últimos Filmes Vistos"
       />
-      <Carousel
-        content={movies}
-        contentType="movie"
-        title="Filmes Bem Avaliados"
-      />
+      <Carousel content={topMovies} contentType="movie" title="Top 10 Filmes" />
     </>
   );
 }
