@@ -17,5 +17,5 @@ export default function PrivateLayout({
       return router.replace(localPaths.SIGNIN);
     }
   }
-  return <>{children}</>;
+  return children;
 }
