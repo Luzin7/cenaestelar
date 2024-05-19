@@ -1,4 +1,4 @@
-import MoviesCarousel from "@/modules/Carousel/Movies";
+import MoviesCarousel from '@components/Carousel/Movies'
 
 export default async function Movies() {
   // const data = await fetchAllMovies();
@@ -8,5 +8,5 @@ export default async function Movies() {
   //     movies: data,
   //   },
   // });
-  return <MoviesCarousel />;
+  return <MoviesCarousel />
 }

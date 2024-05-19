@@ -1,6 +1,6 @@
-import { externalPaths } from "@/utils/externalPaths";
-import { localPaths } from "@/utils/localPaths";
-import styles from "./footer.module.css";
+import { externalPaths } from '@utils/externalPaths'
+import { localPaths } from '@utils/localPaths'
+import styles from './footer.module.css'
 
 export function Footer() {
   return (
@@ -10,5 +10,5 @@ export function Footer() {
         Entre em contato
       </a>
     </footer>
-  );
+  )
 }

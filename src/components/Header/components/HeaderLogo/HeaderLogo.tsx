@@ -1,14 +1,13 @@
-import { localPaths } from "@/utils/localPaths";
-import Link from "next/link";
-import { BsStars } from "react-icons/bs";
-import styles from "./headerIcon.module.css";
+import { localPaths } from '@utils/localPaths'
+import Link from 'next/link'
+import { BsStars } from 'react-icons/bs'
 
 export function HeaderLogo() {
   return (
     <Link href={localPaths.HOME}>
-      <div className={styles.icon_container}>
+      <div className="flex justify-center items-center gap-2 text-2xl text-primary">
         <BsStars />
       </div>
     </Link>
-  );
+  )
 }

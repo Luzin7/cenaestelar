@@ -1,0 +1,55 @@
+.banner_content__container div h2,
+.banner_content__container div p,
+.banner_content__container div a {
+  position: absolute;
+  left: 7vw;
+  z-index: 1;
+  margin: 20px;
+}
+.banner_content__container div h2 {
+  bottom: 16vh;
+}
+.banner_content__container div p {
+  bottom: 12vh;
+}
+.banner_content__container div a {
+  text-decoration: none;
+  bottom: 5vh;
+}
+.banner_content__container img {
+  filter: brightness(0.5);
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
+  border-radius: 20px;
+}
+
+@media only screen and (max-width: 1024px) {
+  .banner_content__container div h2,
+  .banner_content__container div p,
+  .banner_content__container div a {
+    position: absolute;
+    left: 4vw;
+    z-index: 1;
+  }
+  .banner_content__container div h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #fff;
+    bottom: 17vh;
+  }
+  .banner_content__container div p {
+    font-weight: normal;
+    color: #fff;
+    bottom: 12vh;
+  }
+  .banner_content__container img {
+    filter: brightness(0.5);
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: center;
+       object-position: center;
+    border-radius: 20px;
+  }
+}/*# sourceMappingURL=swiper.module.css.map */

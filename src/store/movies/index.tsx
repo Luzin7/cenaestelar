@@ -1,16 +1,16 @@
-import { ContentProps } from "@/types/content";
-import { create } from "zustand";
+import { ContentProps } from '@models/content'
+import { create } from 'zustand'
 
-type Movie = ContentProps;
+type Movie = ContentProps
 
 export interface StoreProps {
-  movies: Movie[];
-  topMovies: Movie[];
-  highlights: Movie[];
+  movies: Movie[]
+  topMovies: Movie[]
+  highlights: Movie[]
 }
 
 export const useMoviesStore = create<StoreProps>(() => ({
   movies: [],
   topMovies: [],
   highlights: [],
-}));
+}))

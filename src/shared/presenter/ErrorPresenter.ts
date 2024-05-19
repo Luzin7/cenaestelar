@@ -1,7 +1,7 @@
-import { ErrorUseCase } from "../core/errors/ErrorUseCase";
+import { ErrorUseCase } from '../core/errors/ErrorUseCase'
 
 export class ErrorPresenter {
   static hadleError(error: ErrorUseCase) {
-    throw new Error(`${error.message}` ?? "Erro interno");
+    throw new Error(`${error.message}` ?? 'Erro interno')
   }
 }

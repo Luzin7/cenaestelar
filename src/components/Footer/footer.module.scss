@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+
+.footer_container {
+  height: 7vh;
+  background: var(--secondary);
+  gap: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

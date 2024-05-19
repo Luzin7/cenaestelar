@@ -1,4 +1,4 @@
 export abstract class ErrorUseCase {
-  abstract message: string;
-  abstract statusCode: number;
+  abstract message: string
+  abstract statusCode: number
 }

@@ -1,5 +1,3 @@
-import AdminView from "@/modules/Admin";
-
 export default function Recommendation() {
-  return <AdminView />;
+  return <h1>Em manutenção</h1>
 }

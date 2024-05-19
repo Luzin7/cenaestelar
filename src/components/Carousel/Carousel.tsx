@@ -1,30 +1,30 @@
-"use client";
+'use client'
 
-import { urlSlugMaker } from "@/functions/urlSlugMaker";
-import { CarouselProps } from "@/types/swiper/carousel";
-import { localPaths } from "@/utils/localPaths";
-import Image from "next/image";
-import Link from "next/link";
-import "swiper/css";
-import "swiper/css/pagination";
-import { FreeMode, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import styles from "./carousel.module.css";
+import { CarouselProps } from '@models/swiper/carousel'
+import { localPaths } from '@utils/localPaths'
+import Image from 'next/image'
+import Link from 'next/link'
+import slugify from 'src/functions/slugify'
+import 'swiper/css'
+import 'swiper/css/pagination'
+import { FreeMode, Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 
 export function Carousel({ content, contentType, title }: CarouselProps) {
-  const pageType =
-    contentType === "movie" ? localPaths.MOVIE : localPaths.SERIE;
+  const pageType = contentType === 'movie' ? localPaths.MOVIE : localPaths.SERIE
 
   return (
-    <section className={styles.carousel_section}>
-      <h1>{title}</h1>
+    <section className="py-7">
+      <h4 className="scroll-m-20 text-2xl font-semibold tracking-tight mb-4">
+        {title}
+      </h4>
       <Swiper
         grabCursor={true}
         freeMode={true}
         modules={[FreeMode, Navigation]}
         navigation={{
-          prevEl: ".prev-button",
-          nextEl: ".next-button",
+          prevEl: '.prev-button',
+          nextEl: '.next-button',
         }}
         breakpoints={{
           390: {
@@ -37,21 +37,19 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
             slidesPerView: 3.25,
           },
           1024: {
-            slidesPerView: 5,
+            slidesPerView: 5.25,
           },
           1920: {
-            slidesPerView: 8.25,
+            slidesPerView: 5.5,
           },
         }}
       >
         {content.map(({ id, title, poster }) => (
           <>
-            {contentType === "wishList" ? (
-              <SwiperSlide
-                key={id}
-                className={styles.carousel_wishlist__container}
-              >
+            {contentType === 'wishList' ? (
+              <SwiperSlide key={id} className="h-80">
                 <Image
+                  className="rounded-xl"
                   width={200}
                   height={300}
                   src={`https://image.tmdb.org/t/p/w500${poster}`}
@@ -60,13 +58,11 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
                 />
               </SwiperSlide>
             ) : (
-              <SwiperSlide
-                key={id}
-                className={styles.carousel_content__container}
-              >
-                <Link href={`${pageType}/${urlSlugMaker(title)}/${id}`}>
-                  <div className={styles.image_container}>
+              <SwiperSlide key={id} className="h-80">
+                <Link href={`${pageType}/${slugify(title)}/${id}`}>
+                  <div>
                     <Image
+                      className="rounded-xl"
                       width={200}
                       height={300}
                       src={`https://image.tmdb.org/t/p/w500${poster}`}
@@ -83,5 +79,5 @@ export function Carousel({ content, contentType, title }: CarouselProps) {
         <div className="swiper-button-next next-button"></div>
       </Swiper>
     </section>
-  );
+  )
 }

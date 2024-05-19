@@ -1,0 +1,71 @@
+.backdrop_container {
+  & img {
+    display: none;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .backdrop_content__container {
+    height: 281px;
+    width: 500px;
+    position: absolute;
+  }
+
+  .backdrop_container {
+    height: 281px;
+    width: 500px;
+    margin: auto;
+    overflow: hidden;
+
+    & img {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .backdrop_content__container {
+    height: 432px;
+    width: 768px;
+    position: absolute;
+  }
+
+  .backdrop_container {
+    height: 432px;
+    width: 768px;
+    margin: auto;
+    overflow: hidden;
+
+    & img {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .backdrop_content__container {
+    height: 540px;
+    width: 960px;
+    position: absolute;
+  }
+
+  .backdrop_container {
+    height: 540px;
+    width: 960px;
+    margin: auto;
+    overflow: hidden;
+
+    & img {
+      display: block;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 20px;
+    }
+  }
+}

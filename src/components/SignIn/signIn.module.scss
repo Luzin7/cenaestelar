@@ -1,0 +1,42 @@
+@import "../../styles/variables";
+
+.container {
+  margin: auto;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  width: 90%;
+}
+
+@media only screen and (min-width: 768px) {
+  .container {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .container {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 1080px) {
+  .container {
+    width: 31%;
+  }
+}
+
+.register {
+  align-self: flex-start;
+  & a {
+    font-weight: $bold;
+    color: var(--accent);
+    text-decoration: underline;
+    font-size: 1.25rem;
+    transition: color 0.4s;
+
+    &:hover {
+      color: var(--primary);
+    }
+  }
+}

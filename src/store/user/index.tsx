@@ -1,29 +1,29 @@
-import { UserInfo } from "firebase/auth";
-import { create } from "zustand";
+import { UserInfo } from 'firebase/auth'
+import { create } from 'zustand'
 
-type User = Omit<UserInfo, "providerId"> & {
-  isLoggedIn: boolean;
-};
+type User = Omit<UserInfo, 'providerId'> & {
+  isLoggedIn: boolean
+}
 
 type ActionsProps = {
-  updateUser: (update: Partial<UserInfo>) => void;
-};
+  updateUser: (update: Partial<UserInfo>) => void
+}
 
 interface StoreProps {
   userState: {
-    user: User;
-  };
-  actions: ActionsProps;
+    user: User
+  }
+  actions: ActionsProps
 }
 
 export const useUserStore = create<StoreProps>((set) => ({
   userState: {
     user: {
-      displayName: "",
-      email: "",
-      phoneNumber: "",
-      photoURL: "",
-      uid: "",
+      displayName: '',
+      email: '',
+      phoneNumber: '',
+      photoURL: '',
+      uid: '',
       isLoggedIn: false,
     },
   },
@@ -39,4 +39,4 @@ export const useUserStore = create<StoreProps>((set) => ({
         },
       })),
   },
-}));
+}))

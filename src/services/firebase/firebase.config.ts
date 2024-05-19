@@ -1,6 +1,6 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth";
-import { collection, getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+import { collection, getFirestore } from 'firebase/firestore'
 
 const app = initializeApp({
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -10,9 +10,9 @@ const app = initializeApp({
   messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
-});
+})
 
-export const auth = getAuth(app);
+export const auth = getAuth(app)
 
-export const db = getFirestore(app);
-export const wishlistCollection = collection(db, "wishlistv2");
+export const db = getFirestore(app)
+export const wishlistCollection = collection(db, 'wishlistv2')

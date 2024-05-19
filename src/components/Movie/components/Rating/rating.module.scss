@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+  align-items: center;
+  font-weight: medium;
+
+  // & img {
+  //   transition: transform 0.2s;
+  //   cursor: pointer;
+  //   &:hover {
+  //     transform: scale(1.1);
+  //   }
+  // }
+}

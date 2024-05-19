@@ -1,3 +1,3 @@
-import { UserIcon } from "./UserIcon";
+import { UserIcon } from './UserIcon'
 
-export default UserIcon;
+export default UserIcon

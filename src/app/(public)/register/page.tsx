@@ -1,5 +1,5 @@
-import RegisterView from "@/modules/Register";
+import RegisterView from '@components/Register'
 
 export default function SignIn() {
-  return <RegisterView />;
+  return <RegisterView />
 }

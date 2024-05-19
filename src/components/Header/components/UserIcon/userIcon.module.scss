@@ -1,0 +1,33 @@
+.dropdown {
+  display: none;
+}
+
+#dropdown_active {
+  top: 3.1rem;
+  right: 2vw;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background: var(--accent);
+  border-radius: 10px 0 10px 10px;
+  transition: all 0.2s ease;
+  overflow: hidden;
+  min-width: 15vh;
+  z-index: 99;
+
+  & a {
+    text-align: center;
+    width: 100%;
+    padding: 0.5rem;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1rem;
+    border-bottom: 1px solid var(--primary);
+
+    &:hover {
+      background: var(--primary);
+    }
+  }
+}

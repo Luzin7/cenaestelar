@@ -1,11 +1,11 @@
-import styles from "./modal.module.css";
+import styles from './modal.module.css'
 
 interface ModalProps {
-  isOpen: boolean;
-  setOpen: (isOpen: boolean) => void;
-  description: string;
-  title: string;
-  btnMessage: string;
+  isOpen: boolean
+  setOpen: (isOpen: boolean) => void
+  description: string
+  title: string
+  btnMessage: string
 }
 
 export function Modal({
@@ -30,15 +30,15 @@ export function Modal({
             type="button"
             className="px-7 py-2 bg-accent text-text font-bold rounded-3xl text-xl hover:bg-primary transition-colors"
             onClick={() => {
-              setOpen(!isOpen);
+              setOpen(!isOpen)
             }}
           >
             {btnMessage}
           </button>
         </div>
       </div>
-    );
+    )
   } else {
-    return <></>;
+    return <></>
   }
 }

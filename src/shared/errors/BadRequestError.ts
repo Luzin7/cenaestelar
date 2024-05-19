@@ -1,10 +1,10 @@
-import { ErrorUseCase } from "@/shared/core/errors/ErrorUseCase";
+import { ErrorUseCase } from '@shared/core/errors/ErrorUseCase'
 
 export class BadRequestError extends Error implements ErrorUseCase {
-  statusCode: number;
+  statusCode: number
 
   constructor() {
-    super("Houve erro na requisição");
-    this.statusCode = 400;
+    super('Houve erro na requisição')
+    this.statusCode = 400
   }
 }

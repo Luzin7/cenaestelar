@@ -1,0 +1,126 @@
+@import "../../../../styles/variables";
+
+.article_content__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70vw;
+  margin: auto;
+
+  & .article_header {
+    margin: 1rem 0;
+    color: $text;
+
+    & h1 {
+      font-size: 2.5rem;
+      font-weight: $bold;
+      margin-bottom: 0.4rem;
+    }
+
+    & p {
+      font-weight: $normal;
+      font-weight: 400;
+      opacity: 0.7;
+      font-size: 1rem;
+    }
+  }
+
+  & .article_body__content {
+    color: var(--text);
+    font-weight: $normal;
+    text-wrap: pretty;
+    font-size: 1.2rem;
+  }
+
+  & .content_rating {
+    display: flex;
+    flex-flow: column;
+    gap: 0.5em;
+    font-size: 1.2rem;
+    color: $primary;
+    padding: 1rem 0;
+
+    & span {
+      font-weight: $bold;
+      text-transform: uppercase;
+    }
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  .article_content__container {
+    width: 500px;
+    align-items: flex-start;
+
+    & .article_header {
+      & h1 {
+        font-size: 2.5rem;
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+    }
+
+    & .article_body__content {
+      font-size: 1.4rem;
+    }
+
+    & .content_rating {
+      font-size: 1.4rem;
+      padding: 1rem 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1280px) {
+  .article_content__container {
+    width: 768px;
+    align-items: flex-start;
+
+    & .article_header {
+      & h1 {
+        font-size: 3.1rem;
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+    }
+
+    & .article_body__content {
+      font-size: 1.4rem;
+    }
+
+    & .content_rating {
+      font-size: 1.4rem;
+      padding: 1rem 0;
+    }
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .article_content__container {
+    width: 960px;
+    align-items: flex-start;
+
+    & .article_header {
+      & h1 {
+        font-size: 3.1rem;
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+    }
+
+    & .article_body__content {
+      font-size: 1.4rem;
+    }
+
+    & .content_rating {
+      font-size: 1.4rem;
+      padding: 1rem 0;
+    }
+  }
+}

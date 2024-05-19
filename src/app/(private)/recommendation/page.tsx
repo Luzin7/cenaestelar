@@ -1,5 +1,3 @@
-import RecommendationView from "@/modules/Recommendation";
-
 export default function Recommendation() {
-  return <RecommendationView />;
+  return <h1>Em manutenção</h1>
 }

@@ -1,5 +1,5 @@
-import { localPaths } from "@/utils/localPaths";
-import Link from "next/link";
+import { localPaths } from '@utils/localPaths'
+import Link from 'next/link'
 
 export default function About() {
   return (
@@ -49,5 +49,5 @@ export default function About() {
         </p>
       </section>
     </main>
-  );
+  )
 }

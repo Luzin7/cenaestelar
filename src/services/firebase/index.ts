@@ -1,16 +1,16 @@
-import { addDoc, getDocs } from "firebase/firestore";
-import * as tmdbServices from "../tmdbApi";
-import { wishlistCollection } from "./firebase.config";
+import { addDoc, getDocs } from 'firebase/firestore'
+import * as tmdbServices from '../tmdbApi'
+import { wishlistCollection } from './firebase.config'
 
 export async function getWishlist() {
-  const { docs } = await getDocs(wishlistCollection);
+  const { docs } = await getDocs(wishlistCollection)
 
   const wishlist = docs.map((doc) => {
-    const { title, poster, rating } = doc.data();
-    return { id: doc.id, title, poster, rating };
-  });
+    const { title, poster, rating } = doc.data()
+    return { id: doc.id, title, poster, rating }
+  })
 
-  return wishlist;
+  return wishlist
 }
 
 export async function addToWishlist(
@@ -18,18 +18,18 @@ export async function addToWishlist(
   whoRecommends: unknown,
 ): Promise<void> {
   try {
-    const response = await tmdbServices.fetchMovieById(id);
+    const response = await tmdbServices.fetchMovieById(id)
 
     await addDoc(wishlistCollection, {
       name: response.title,
       poster: response.poster_path,
-      contentType: "Movie",
+      contentType: 'Movie',
       whoRecommends,
-    });
+    })
   } catch (error) {
     throw new Error(
-      "Erro ao adicionar na lista de desejo",
+      'Erro ao adicionar na lista de desejo',
       error as ErrorOptions,
-    );
+    )
   }
 }

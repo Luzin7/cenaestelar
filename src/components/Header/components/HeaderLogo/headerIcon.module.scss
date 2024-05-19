@@ -1,0 +1,20 @@
+@import "../../../../styles/variables";
+
+.icon_container{
+  display: none;
+}
+
+@media only screen and (min-width: 768px){
+  .icon_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 2rem;
+    color: $accent;
+
+    & svg{
+    fill: $primary;
+    }
+  }
+}

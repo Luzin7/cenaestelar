@@ -1,19 +1,19 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import { Form } from "../Form";
+import { useState } from 'react'
+import { Form } from '../Form'
 
 export function SearchBar() {
-  const [searchContent, setSearchContent] = useState<string>("");
+  const [searchContent, setSearchContent] = useState<string>('')
   return (
     <Form.Wrapper
       onSubmit={(e) => {
-        e.preventDefault();
+        e.preventDefault()
       }}
     >
       <Form.Input
         style={{
-          padding: "0.5rem",
+          padding: '0.5rem',
         }}
         type="text"
         value={searchContent}
@@ -21,5 +21,5 @@ export function SearchBar() {
         onChange={({ target }) => setSearchContent(target.value)}
       />
     </Form.Wrapper>
-  );
+  )
 }

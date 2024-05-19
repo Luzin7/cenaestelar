@@ -1,35 +1,39 @@
-import { Footer } from "@/components/Footer/Footer";
-import Header from "@/components/Header";
-import GetAuthState from "@/modules/Auth/GetAuthState";
-import "@/styles/globals.css";
-import { Metadata } from "next";
-import { Roboto } from "next/font/google";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import GetAuthState from '@components/Auth/GetAuthState'
+import '@styles/globals.css'
+import { Metadata } from 'next'
+import { Inter as FontSans } from 'next/font/google'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import { Footer } from 'src/components/Footer/Footer'
+import Header from 'src/components/Header'
+import { cn } from 'src/lib/utils'
 
-const roboto = Roboto({
-  weight: ["100", "300", "400", "500", "700", "900"],
-  style: ["normal", "italic"],
-  subsets: ["latin"],
-  display: "swap",
-});
+const fontSans = FontSans({
+  subsets: ['latin'],
+  variable: '--font-sans',
+})
 
 export const metadata: Metadata = {
-  title: "Cena Estelar",
-  description: "Reviews duvidosas, ou não.",
-};
+  title: 'Cena Estelar',
+  description: 'Reviews duvidosas. Tem vezes que não.',
+}
 
 export default function GlobalLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={roboto.className}>
+    <html lang="pt-br" className="dark" style={{ colorScheme: 'dark' }}>
+      <body
+        className={cn(
+          'min-h-screen bg-background font-sans antialiased',
+          fontSans.variable,
+        )}
+      >
         <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={2500}
           newestOnTop
           closeOnClick
           theme="dark"
@@ -39,5 +43,5 @@ export default function GlobalLayout({
         <Footer />
       </body>
     </html>
-  );
+  )
 }
